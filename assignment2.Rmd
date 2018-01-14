@@ -10,3 +10,38 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 This is the R Markdown document containing an interactive chart created using the **plotly** R library.
+
+Let's see two examples of plotly charts. A scatterplot and a 2D heatmap
+
+## Scatterplot
+
+First I am going to plot a scatter chart using the **rmvnorm** method from the **mvtnorm** library. The method generates a vector of random values from an n-dimensional multivariate normal distribution.
+
+```{r warning = F, message = FALSE}
+# install.packages('mvtnorm')
+library(plotly)
+
+sigma_values <- matrix(c(0.9, -.80, -.80, 0.9), ncol = 2)
+observations <- mvtnorm::rmvnorm(750, sigma = sigma_values)
+chart <- plot_ly(x = observations[,1], y = observations[,2])
+
+chart %>% add_markers(alpha = 0.4) %>% 
+        layout(title = "Random Values from Multinormal Distribution",
+               xaxis = list(title = "x values"),
+               yaxis = list(title = "y values"))
+```
+
+## Heatmap
+
+In this case we are going to represent the same data source with a 2D heatmap.
+
+```{r}
+chart <- plot_ly(x = observations[,1], y = observations[,2])
+
+chart %>% add_histogram2d() %>%
+        layout(title = "Random Values from Multinormal Distribution",
+               xaxis = list(title = "x values"),
+               yaxis = list(title = "y values"))
+```
+
+
