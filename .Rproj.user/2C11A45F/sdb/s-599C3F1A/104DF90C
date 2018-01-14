@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: 'Peer-graded Assignment: R Markdown and Leaflet'\nauthor: \"Federico Viscioletti\"\ndate: \"1/3/2018\"\noutput: html_document\n---\n\n```{r setup, include = FALSE}\nknitr::opts_chunk$set(echo = TRUE, warning = FALSE)\n```\n\nThis is the R Markdown document containing an interactive map created using the **leaflet** R library.\n\n## The map\n\n```{r}\nlibrary(leaflet)\nlibrary(dplyr)\n\nita_cities <- data.frame(name = c(\"Rome\", \"Milan\", \"Neaples\", \"Turin\", \n                                 \"Palermo\", \"Genova\", \"Bologna\", \"Florence\",\n                                 \"Catania\", \"Bari\"),\n                        pop = c(2618900, 1212900, 995000, 865700, 671100, 594900, \n                                375800, 356100, 315100, 310500),\n                        lat = c(41.890, 45.480, 40.850, 45.080, 38.120, 44.420, \n                                44.500, 43.780, 37.500, 41.120),\n                        lng = c(12.500, 9.190, 14.270, 7.680, 13.360, 8.930, \n                                11.340, 11.240, 15.080, 16.870))\n\nita_popup <- c(\n        \"<a href = 'https://en.wikipedia.org/wiki/Rome' target = '_blank'>Rome</a>\",\n        \"<a href = 'https://en.wikipedia.org/wiki/Milan' target = '_blank'>Milan</a>\",\n        \"<a href = 'https://en.wikipedia.org/wiki/Neaples' target = '_blank'>Neaples</a>\",\n        \"<a href = 'https://en.wikipedia.org/wiki/Turin' target = '_blank'>Turin</a>\",\n        \"<a href = 'https://en.wikipedia.org/wiki/Palermo' target = '_blank'>Palermo</a>\",\n        \"<a href = 'https://en.wikipedia.org/wiki/Genova' target = '_blank'>Genova</a>\",\n        \"<a href = 'https://en.wikipedia.org/wiki/Bologna' target = '_blank'>Bologna</a>\",\n        \"<a href = 'https://en.wikipedia.org/wiki/Florence' target = '_blank'>Florence</a>\",\n        \"<a href = 'https://en.wikipedia.org/wiki/Catania' target = '_blank'>Catania</a>\",\n        \"<a href = 'https://en.wikipedia.org/wiki/Bari' target = '_blank'>Bari</a>\"\n)\n\nita_cities %>%\n        leaflet() %>%\n        addTiles() %>%\n        addCircles(weight = 1, radius = sqrt(ita_cities$pop) * 30) %>% \n        addMarkers(popup = ita_popup)\n\n\n```\n\n\n",
+    "created" : 1515971789903.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3366005119",
+    "id" : "104DF90C",
+    "lastKnownWriteTime" : 1514987638,
+    "last_content_update" : 1514987638,
+    "path" : "~/data_products/assignment1/assignment1.Rmd",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

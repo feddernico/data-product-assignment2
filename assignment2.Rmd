@@ -1,0 +1,12 @@
+---
+title: "Peer-graded Assignment: Plotly chart"
+author: "Federico Viscioletti"
+date: "1/14/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is the R Markdown document containing an interactive chart created using the **plotly** R library.
